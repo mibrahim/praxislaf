@@ -9,7 +9,7 @@ I mavenized the code, separated the icons in the resources package. To use in co
 put the jar somewhere, and execute netbeans with the following commandline:
 
 
-netbeans -cp:p <path to your praxis jar> --laf net.neilcsmith.praxis.laf.PraxisLookAndFeel
+netbeans -cp:p &lt;path to your praxis jar&gt; --laf net.neilcsmith.praxis.laf.PraxisLookAndFeel
 
 Here's a screenshot with netbeans 7.4 running praxislaf, with Monster2 theme:
 
