@@ -15,13 +15,12 @@
  *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this work; if not, see http://www.gnu.org/licenses/
- * 
+ *
  *
  * Please visit http://neilcsmith.net if you need additional information or
  * have any questions.
  *
  */
-
 package net.neilcsmith.praxis.laf;
 
 import com.nilo.plaf.nimrod.NimRODLookAndFeel;
@@ -31,26 +30,26 @@ import javax.swing.UIDefaults;
  *
  * @author Neil C Smith
  */
-public class PraxisLookAndFeel extends NimRODLookAndFeel {
-    
-    public PraxisLookAndFeel() {
-        setCurrentTheme(new PraxisTheme());
-    }
+public class PraxisLookAndFeel extends NimRODLookAndFeel
+{
 
-    @Override
-    public String getID() {
-        return "Praxis";
-    }
+	public PraxisLookAndFeel()
+	{
+		setCurrentTheme(new PraxisTheme());
+	}
 
+	@Override
+	public String getID()
+	{
+		return "Praxis";
+	}
 
-
-    @Override
-    protected void initComponentDefaults(UIDefaults table) {
-        super.initComponentDefaults(table);
-        table.put("ButtonUI", "net.neilcsmith.praxis.laf.PraxisButtonUI");
-        table.put("ToggleButtonUI", "net.neilcsmith.praxis.laf.PraxisToggleButtonUI");
-    }
-
-
+	@Override
+	protected void initComponentDefaults(UIDefaults table)
+	{
+		super.initComponentDefaults(table);
+		table.put("ButtonUI", "net.neilcsmith.praxis.laf.PraxisButtonUI");
+		table.put("ToggleButtonUI", "net.neilcsmith.praxis.laf.PraxisToggleButtonUI");
+	}
 
 }

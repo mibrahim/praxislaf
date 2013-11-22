@@ -5,11 +5,11 @@
  * the terms of the GNU Lesser Gereral Public Licence as published by the Free
  * Software Foundation; either version 2 of the Licence, or (at your opinion) any
  * later version.
- * 
+ *
  * This library is distributed in the hope that it will be usefull, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of merchantability or fitness for a
  * particular purpose. See the GNU Lesser General Public Licence for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public Licence along
  * with this library; if not, write to the Free Software Foundation, Inc., 59
  * Temple Place, Suite 330, Boston, Ma 02111-1307 USA.
@@ -20,27 +20,28 @@
  *
  * Original author: Nilo J. Gonzalez
  */
-
- 
 /**
- * Esta clase esta aqui sobre todo para que los JSpinner tengan un aspecto similar
- * al del resto de los JTextFields. Y si de paso los JFormattedTextField se ven bien,
- * pues mas mejor.
+ * Esta clase esta aqui sobre todo para que los JSpinner tengan un aspecto
+ * similar al del resto de los JTextFields. Y si de paso los JFormattedTextField
+ * se ven bien, pues mas mejor.
+ *
  * @author Nilo J. Gonzalez
  */
-
 package com.nilo.plaf.nimrod;
 
 import javax.swing.JComponent;
 import javax.swing.plaf.ComponentUI;
 
+public class NimRODFormattedTextFieldUI extends NimRODTextFieldUI
+{
 
- public class NimRODFormattedTextFieldUI extends NimRODTextFieldUI {
-  public NimRODFormattedTextFieldUI( JComponent c) {
-    super( c);
-  }
-  
-	public static ComponentUI createUI( JComponent c) {
-    return new NimRODFormattedTextFieldUI( c);
-  }
+	public NimRODFormattedTextFieldUI(JComponent c)
+	{
+		super(c);
+	}
+
+	public static ComponentUI createUI(JComponent c)
+	{
+		return new NimRODFormattedTextFieldUI(c);
+	}
 }

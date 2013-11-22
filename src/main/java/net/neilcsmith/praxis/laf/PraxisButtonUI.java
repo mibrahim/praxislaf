@@ -15,7 +15,7 @@
  *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this work; if not, see http://www.gnu.org/licenses/
- * 
+ *
  *
  * Please visit http://neilcsmith.net if you need additional information or
  * have any questions.
@@ -36,23 +36,28 @@ import javax.swing.plaf.ComponentUI;
  *
  * @author Neil C Smith
  */
-public class PraxisButtonUI extends NimRODButtonUI {
+public class PraxisButtonUI extends NimRODButtonUI
+{
 
-    public static ComponentUI createUI(JComponent c) {
-        return new PraxisButtonUI();
+	public static ComponentUI createUI(JComponent c)
+	{
+		return new PraxisButtonUI();
 
-    }
+	}
 
-    @Override
-    protected void paintFocus(Graphics g, AbstractButton b,
-            Rectangle viewRect, Rectangle textRect, Rectangle iconRect) {
-        if (!b.isFocusPainted() || !oldOpaque) {
-            return;
-        }
-        if (b.getParent() instanceof JToolBar) {
-            return;  // No se pintael foco cuando estamos en una barra
-        }
+	@Override
+	protected void paintFocus(Graphics g, AbstractButton b,
+		Rectangle viewRect, Rectangle textRect, Rectangle iconRect)
+	{
+		if (!b.isFocusPainted() || !oldOpaque)
+		{
+			return;
+		}
+		if (b.getParent() instanceof JToolBar)
+		{
+			return;  // No se pintael foco cuando estamos en una barra
+		}
 
-        PraxisThemeUtils.paintFocus(g, 3, 3, b.getWidth() - 6, b.getHeight() - 6, 2, 2, 1, NimRODLookAndFeel.getFocusColor());
-    }
+		PraxisThemeUtils.paintFocus(g, 3, 3, b.getWidth() - 6, b.getHeight() - 6, 2, 2, 1, NimRODLookAndFeel.getFocusColor());
+	}
 }
