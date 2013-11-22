@@ -10,3 +10,7 @@ put the jar somewhere, and execute netbeans with the following commandline:
 
 
 netbeans -cp:p <path to your praxis jar> --laf net.neilcsmith.praxis.laf.PraxisLookAndFeel
+
+Here's a screenshot with netbeans 7.4 running praxislaf, with Monster2 theme:
+
+![Praxis running on netbeans](https://raw.github.com/mibrahim/praxislaf/gh-pages/praxis.png "Praxis on netbeans")
