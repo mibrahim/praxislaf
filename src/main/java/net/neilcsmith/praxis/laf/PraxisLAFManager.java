@@ -24,6 +24,7 @@
 package net.neilcsmith.praxis.laf;
 
 import java.awt.EventQueue;
+import java.lang.reflect.InvocationTargetException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.LookAndFeel;
@@ -33,69 +34,53 @@ import javax.swing.UnsupportedLookAndFeelException;
 /**
  *
  * @author Neil C Smith
+ * @author Mohamed Ibrahim
  */
-public class PraxisLAFManager
-{
+public class PraxisLAFManager {
 
-	private static PraxisLAFManager instance = new PraxisLAFManager();
+    private static final PraxisLAFManager instance = new PraxisLAFManager();
 
-	private PraxisLAFManager()
-	{
-	}
+    private PraxisLAFManager() {
+    }
 
-	public void installUI()
-	{
-		if (EventQueue.isDispatchThread())
-		{
-			doInstall();
-		} else
-		{
-			try
-			{
-				EventQueue.invokeAndWait(new Runnable()
-				{
+    public void installUI() throws Exception {
+        if (EventQueue.isDispatchThread()) {
+            doInstall();
+        } else {
+            try {
+                EventQueue.invokeAndWait(new Runnable() {
 
-					public void run()
-					{
-						doInstall();
-					}
-				});
-			} catch (Exception ex)
-			{
-				ex.printStackTrace();
-			}
-		}
-	}
+                    @Override
+                    public void run() {
+                        doInstall();
+                    }
+                });
+            } catch (InterruptedException | InvocationTargetException ex) {
+                throw new Exception("Could not install praxislaf", ex);
+            }
+        }
+    }
 
-	private void doInstall()
-	{
-		boolean useSystemTheme = false;
-		try
-		{
-			useSystemTheme = Boolean.parseBoolean(System.getProperty("praxis.useSystemTheme", "false"));
-		} catch (Exception ex)
-		{
-			useSystemTheme = false;
-		}
-		if (useSystemTheme)
-		{
-			return;
-		}
-		try
-		{
-//            NimRODLookAndFeel laf = new NimRODLookAndFeel();
-//            laf.setCurrentTheme(new PraxisTheme
-			LookAndFeel laf = new PraxisLookAndFeel();
-			UIManager.setLookAndFeel(laf);
-		} catch (UnsupportedLookAndFeelException ex)
-		{
-			Logger.getLogger(PraxisLAFManager.class.getName()).log(Level.SEVERE, null, ex);
-		}
-	}
+    private void doInstall() {
+        boolean useSystemTheme;
+        try {
+            useSystemTheme = Boolean.parseBoolean(System.getProperty("praxis.useSystemTheme", "false"));
+        } catch (Exception ex) {
+            useSystemTheme = false;
+        }
+        if (useSystemTheme) {
+            return;
+        }
+        try {
+            LookAndFeel laf = new PraxisLookAndFeel();
+            UIManager.setLookAndFeel(laf);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PraxisLAFManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
-	public static PraxisLAFManager getInstance()
-	{
-		return instance;
-	}
+    public static PraxisLAFManager getInstance() {
+        return instance;
+    }
 
 }

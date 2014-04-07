@@ -26,6 +26,8 @@ package net.neilcsmith.praxis.laf;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -37,49 +39,47 @@ import javax.swing.SwingUtilities;
  *
  * @author Neil C Smith
  */
-public class LAFTester
-{
+public class LAFTester {
 
-	/**
-	 * @param args the command line arguments
-	 */
-	public static void main(String[] args)
-	{
-		SwingUtilities.invokeLater(new Runnable()
-		{
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
 
-			public void run()
-			{
-				PraxisLAFManager.getInstance().installUI();
-				final JFrame frame = new JFrame("Test");
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				Box box = Box.createHorizontalBox();
-				frame.add(box);
-				JButton button = new JButton("Open");
-				final JTextField field = new JTextField(30);
-				field.setEditable(false);
-				button.addActionListener(new ActionListener()
-				{
+            @Override
+            public void run() {
+                try {
+                    PraxisLAFManager.getInstance().installUI();
+                } catch (Exception ex) {
+                    Logger.getLogger(LAFTester.class.getName()).log(Level.SEVERE, "Problem while installing the UI", ex);
+                }
+                final JFrame frame = new JFrame("Test");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                Box box = Box.createHorizontalBox();
+                frame.add(box);
+                JButton button = new JButton("Open");
+                final JTextField field = new JTextField(30);
+                field.setEditable(false);
+                button.addActionListener(new ActionListener() {
 
-					public void actionPerformed(ActionEvent e)
-					{
-						JFileChooser chooser = new JFileChooser();
-						int result = chooser.showOpenDialog(frame);
-						if (result == JFileChooser.APPROVE_OPTION)
-						{
-							field.setText(new File(chooser.getSelectedFile().toURI()).getName());
-						} else
-						{
-							field.setText("No File");
-						}
-					}
-				});
-				box.add(button);
-				box.add(field);
-				frame.pack();
-				frame.setVisible(true);
-			}
-		});
-	}
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        JFileChooser chooser = new JFileChooser();
+                        int result = chooser.showOpenDialog(frame);
+                        if (result == JFileChooser.APPROVE_OPTION) {
+                            field.setText(new File(chooser.getSelectedFile().toURI()).getName());
+                        } else {
+                            field.setText("No File");
+                        }
+                    }
+                });
+                box.add(button);
+                box.add(field);
+                frame.pack();
+                frame.setVisible(true);
+            }
+        });
+    }
 
 }

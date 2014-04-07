@@ -23,41 +23,36 @@
  */
 package net.neilcsmith.praxis.laf;
 
-import com.nilo.plaf.nimrod.NimRODButtonUI;
-import com.nilo.plaf.nimrod.NimRODLookAndFeel;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import javax.swing.AbstractButton;
 import javax.swing.JComponent;
 import javax.swing.JToolBar;
 import javax.swing.plaf.ComponentUI;
+import net.sf.nimrod.NimRODButtonUI;
+import net.sf.nimrod.NimRODLookAndFeel;
 
 /**
  *
  * @author Neil C Smith
  */
-public class PraxisButtonUI extends NimRODButtonUI
-{
+public class PraxisButtonUI extends NimRODButtonUI {
 
-	public static ComponentUI createUI(JComponent c)
-	{
-		return new PraxisButtonUI();
+    public static ComponentUI createUI(JComponent c) {
+        return new PraxisButtonUI();
 
-	}
+    }
 
-	@Override
-	protected void paintFocus(Graphics g, AbstractButton b,
-		Rectangle viewRect, Rectangle textRect, Rectangle iconRect)
-	{
-		if (!b.isFocusPainted() || !oldOpaque)
-		{
-			return;
-		}
-		if (b.getParent() instanceof JToolBar)
-		{
-			return;  // No se pintael foco cuando estamos en una barra
-		}
+    @Override
+    protected void paintFocus(Graphics g, AbstractButton b,
+            Rectangle viewRect, Rectangle textRect, Rectangle iconRect) {
+        if (!b.isFocusPainted() || !oldOpaque) {
+            return;
+        }
+        if (b.getParent() instanceof JToolBar) {
+            return;  // No se pintael foco cuando estamos en una barra
+        }
 
-		PraxisThemeUtils.paintFocus(g, 3, 3, b.getWidth() - 6, b.getHeight() - 6, 2, 2, 1, NimRODLookAndFeel.getFocusColor());
-	}
+        PraxisThemeUtils.paintFocus(g, 3, 3, b.getWidth() - 6, b.getHeight() - 6, 2, 2, 1, NimRODLookAndFeel.getFocusColor());
+    }
 }

@@ -34,35 +34,27 @@ import java.awt.Stroke;
  *
  * @author Neil C Smith
  */
-class PraxisThemeUtils
-{
+class PraxisThemeUtils {
 
-	private PraxisThemeUtils()
-	{
-	}
+    private PraxisThemeUtils() {
+    }
 
-//  static void paintFocus( Graphics g, int x, int y, int width, int height, int r1, int r2, Color color) {
-//    paintFocus( g, x, y, width, height, r1, r2, 2.0f, color);
-//  }
-	static void paintFocus(Graphics g, int x, int y, int width, int height, int r1, int r2, float grosor, Color color)
-	{
-		Graphics2D g2d = (Graphics2D) g;
-		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		Stroke oldStroke = g2d.getStroke();
+    static void paintFocus(Graphics g, int x, int y, int width, int height, int r1, int r2, float grosor, Color color) {
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        Stroke oldStroke = g2d.getStroke();
 
-		g2d.setColor(color);
-		g2d.setStroke(new BasicStroke(grosor));
-		if (r1 == 0 && r2 == 0)
-		{
-			g.drawRect(x, y, width, height);
-		} else
-		{
-			g.drawRoundRect(x, y, width - 1, height - 1, r1, r2);
-		}
+        g2d.setColor(color);
+        g2d.setStroke(new BasicStroke(grosor));
+        if (r1 == 0 && r2 == 0) {
+            g.drawRect(x, y, width, height);
+        } else {
+            g.drawRoundRect(x, y, width - 1, height - 1, r1, r2);
+        }
 
-		g2d.setStroke(oldStroke);
+        g2d.setStroke(oldStroke);
 
-		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_DEFAULT);
-	}
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_DEFAULT);
+    }
 
 }

@@ -23,33 +23,29 @@
  */
 package net.neilcsmith.praxis.laf;
 
-import com.nilo.plaf.nimrod.NimRODLookAndFeel;
 import javax.swing.UIDefaults;
+import net.sf.nimrod.NimRODLookAndFeel;
 
 /**
  *
  * @author Neil C Smith
  */
-public class PraxisLookAndFeel extends NimRODLookAndFeel
-{
+public class PraxisLookAndFeel extends NimRODLookAndFeel {
 
-	public PraxisLookAndFeel()
-	{
-		setCurrentTheme(new PraxisTheme());
-	}
+    public PraxisLookAndFeel() {
+        setCurrentTheme(new PraxisTheme());
+    }
 
-	@Override
-	public String getID()
-	{
-		return "Praxis";
-	}
+    @Override
+    public String getID() {
+        return "Praxis";
+    }
 
-	@Override
-	protected void initComponentDefaults(UIDefaults table)
-	{
-		super.initComponentDefaults(table);
-		table.put("ButtonUI", "net.neilcsmith.praxis.laf.PraxisButtonUI");
-		table.put("ToggleButtonUI", "net.neilcsmith.praxis.laf.PraxisToggleButtonUI");
-	}
+    @Override
+    protected void initComponentDefaults(UIDefaults table) {
+        super.initComponentDefaults(table);
+        table.put("ButtonUI", "net.neilcsmith.praxis.laf.PraxisButtonUI");
+        table.put("ToggleButtonUI", "net.neilcsmith.praxis.laf.PraxisToggleButtonUI");
+    }
 
 }
