@@ -23,6 +23,7 @@
  */
 package net.neilcsmith.praxis.laf;
 
+import java.io.IOException;
 import javax.swing.UIDefaults;
 import net.sf.nimrod.NimRODLookAndFeel;
 
@@ -32,7 +33,7 @@ import net.sf.nimrod.NimRODLookAndFeel;
  */
 public class PraxisLookAndFeel extends NimRODLookAndFeel {
 
-    public PraxisLookAndFeel() {
+    public PraxisLookAndFeel() throws IOException {
         setCurrentTheme(new PraxisTheme());
     }
 

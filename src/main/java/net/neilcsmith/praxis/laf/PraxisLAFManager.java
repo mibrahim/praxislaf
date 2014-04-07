@@ -24,6 +24,7 @@
 package net.neilcsmith.praxis.laf;
 
 import java.awt.EventQueue;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -52,7 +53,11 @@ public class PraxisLAFManager {
 
                     @Override
                     public void run() {
-                        doInstall();
+                        try {
+                            doInstall();
+                        } catch (IOException ex) {
+                            Logger.getLogger(PraxisLAFManager.class.getName()).log(Level.SEVERE, "Problem installing the UI", ex);
+                        }
                     }
                 });
             } catch (InterruptedException | InvocationTargetException ex) {
@@ -61,7 +66,7 @@ public class PraxisLAFManager {
         }
     }
 
-    private void doInstall() {
+    private void doInstall() throws IOException {
         boolean useSystemTheme;
         try {
             useSystemTheme = Boolean.parseBoolean(System.getProperty("praxis.useSystemTheme", "false"));
