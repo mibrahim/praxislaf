@@ -3,7 +3,7 @@
 
     <groupId>com.github.mibrahim</groupId>
     <artifactId>praxislaf</artifactId>
-    <version>1.3</version>
+    <version>1.4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>praxislaf</name>
