@@ -21,38 +21,32 @@
  * have any questions.
  *
  */
-package net.neilcsmith.praxis.laf;
+package com.github.mibrahim.praxislaf;
 
-import java.awt.Graphics;
-import java.awt.Rectangle;
-import javax.swing.AbstractButton;
-import javax.swing.JComponent;
-import javax.swing.JToolBar;
-import javax.swing.plaf.ComponentUI;
 import net.sf.nimrod.NimRODLookAndFeel;
-import net.sf.nimrod.NimRODToggleButtonUI;
+
+import javax.swing.*;
+import java.io.IOException;
 
 /**
- *
  * @author Neil C Smith
  */
-public class PraxisToggleButtonUI extends NimRODToggleButtonUI {
+public class PraxisLookAndFeel extends NimRODLookAndFeel {
 
-    public static ComponentUI createUI(JComponent c) {
-        return new PraxisToggleButtonUI();
-
+    public PraxisLookAndFeel() throws IOException {
+        setCurrentTheme(new PraxisTheme());
     }
 
     @Override
-    protected void paintFocus(Graphics g, AbstractButton b,
-            Rectangle viewRect, Rectangle textRect, Rectangle iconRect) {
-        if (!b.isFocusPainted() || !oldOpaque) {
-            return;
-        }
-        if (b.getParent() instanceof JToolBar) {
-            return;  // No se pintael foco cuando estamos en una barra
-        }
-
-        PraxisThemeUtils.paintFocus(g, 3, 3, b.getWidth() - 6, b.getHeight() - 6, 2, 2, 1, NimRODLookAndFeel.getFocusColor());
+    public String getID() {
+        return "Praxis";
     }
+
+    @Override
+    protected void initComponentDefaults(UIDefaults table) {
+        super.initComponentDefaults(table);
+        table.put("ButtonUI", "com.github.mibrahim.praxislaf.PraxisButtonUI");
+        table.put("ToggleButtonUI", "com.github.mibrahim.praxislaf.PraxisToggleButtonUI");
+    }
+
 }

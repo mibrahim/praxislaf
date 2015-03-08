@@ -21,22 +21,16 @@
  * have any questions.
  *
  */
-package net.neilcsmith.praxis.laf;
+package com.github.mibrahim.praxislaf;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.Box;
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 
 /**
- *
  * @author Neil C Smith
  */
 public class LAFTester {

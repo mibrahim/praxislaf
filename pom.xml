@@ -8,7 +8,30 @@
     <packaging>jar</packaging>
 
     <name>praxislaf</name>
-    <url>http://maven.apache.org</url>
+    <description>A mavenized version of the praxis look and feel</description>
+    <url>http://github.com/mibrahim/praxislaf</url>
+
+    <licenses>
+        <license>
+            <name>The GNU General Public License V3.0</name>
+            <url>http://www.gnu.org/licenses/gpl-3.0.txt</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:http://github.com/mibrahim/praxislaf</connection>
+        <developerConnection>scm:git:http://github.com/mibrahim/praxislaf</developerConnection>
+        <url>http://github.com/mibrahim/praxislaf</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>mibrahim</id>
+            <name>Mohamed Ibrahim</name>
+            <email>mibrahim@mibrahim.net</email>
+        </developer>
+    </developers>
+
     <build>
         <plugins>
             <plugin>
@@ -40,4 +63,18 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <name>Nexus Staging Repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Nexus Snapshot Repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

@@ -21,24 +21,21 @@
  * have any questions.
  *
  */
-package net.neilcsmith.praxis.laf;
+package com.github.mibrahim.praxislaf;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Graphics;
+import net.sf.nimrod.NimRODTheme;
+
+import javax.swing.*;
+import javax.swing.plaf.UIResource;
+import javax.swing.plaf.metal.MetalLookAndFeel;
+import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Properties;
 import java.util.logging.Logger;
-import javax.swing.Icon;
-import javax.swing.UIDefaults;
-import javax.swing.plaf.UIResource;
-import javax.swing.plaf.metal.MetalLookAndFeel;
-import net.sf.nimrod.NimRODTheme;
 
 /**
- *
  * @author Neil C Smith
  */
 public class PraxisTheme extends NimRODTheme {

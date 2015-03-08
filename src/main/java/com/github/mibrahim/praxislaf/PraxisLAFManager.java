@@ -21,19 +21,16 @@
  * have any questions.
  *
  */
-package net.neilcsmith.praxis.laf;
+package com.github.mibrahim.praxislaf;
 
-import java.awt.EventQueue;
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.LookAndFeel;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 /**
- *
  * @author Neil C Smith
  * @author Mohamed Ibrahim
  */

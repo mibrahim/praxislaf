@@ -21,19 +21,16 @@
  * have any questions.
  *
  */
-package net.neilcsmith.praxis.laf;
+package com.github.mibrahim.praxislaf;
 
-import java.awt.Graphics;
-import java.awt.Rectangle;
-import javax.swing.AbstractButton;
-import javax.swing.JComponent;
-import javax.swing.JToolBar;
-import javax.swing.plaf.ComponentUI;
 import net.sf.nimrod.NimRODButtonUI;
 import net.sf.nimrod.NimRODLookAndFeel;
 
+import javax.swing.*;
+import javax.swing.plaf.ComponentUI;
+import java.awt.*;
+
 /**
- *
  * @author Neil C Smith
  */
 public class PraxisButtonUI extends NimRODButtonUI {
@@ -45,7 +42,7 @@ public class PraxisButtonUI extends NimRODButtonUI {
 
     @Override
     protected void paintFocus(Graphics g, AbstractButton b,
-            Rectangle viewRect, Rectangle textRect, Rectangle iconRect) {
+                              Rectangle viewRect, Rectangle textRect, Rectangle iconRect) {
         if (!b.isFocusPainted() || !oldOpaque) {
             return;
         }

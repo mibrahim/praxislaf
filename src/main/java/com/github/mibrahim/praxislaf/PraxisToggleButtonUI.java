@@ -21,32 +21,35 @@
  * have any questions.
  *
  */
-package net.neilcsmith.praxis.laf;
+package com.github.mibrahim.praxislaf;
 
-import java.io.IOException;
-import javax.swing.UIDefaults;
 import net.sf.nimrod.NimRODLookAndFeel;
+import net.sf.nimrod.NimRODToggleButtonUI;
+
+import javax.swing.*;
+import javax.swing.plaf.ComponentUI;
+import java.awt.*;
 
 /**
- *
  * @author Neil C Smith
  */
-public class PraxisLookAndFeel extends NimRODLookAndFeel {
+public class PraxisToggleButtonUI extends NimRODToggleButtonUI {
 
-    public PraxisLookAndFeel() throws IOException {
-        setCurrentTheme(new PraxisTheme());
+    public static ComponentUI createUI(JComponent c) {
+        return new PraxisToggleButtonUI();
+
     }
 
     @Override
-    public String getID() {
-        return "Praxis";
-    }
+    protected void paintFocus(Graphics g, AbstractButton b,
+                              Rectangle viewRect, Rectangle textRect, Rectangle iconRect) {
+        if (!b.isFocusPainted() || !oldOpaque) {
+            return;
+        }
+        if (b.getParent() instanceof JToolBar) {
+            return;  // No se pintael foco cuando estamos en una barra
+        }
 
-    @Override
-    protected void initComponentDefaults(UIDefaults table) {
-        super.initComponentDefaults(table);
-        table.put("ButtonUI", "net.neilcsmith.praxis.laf.PraxisButtonUI");
-        table.put("ToggleButtonUI", "net.neilcsmith.praxis.laf.PraxisToggleButtonUI");
+        PraxisThemeUtils.paintFocus(g, 3, 3, b.getWidth() - 6, b.getHeight() - 6, 2, 2, 1, NimRODLookAndFeel.getFocusColor());
     }
-
 }
