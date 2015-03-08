@@ -3,7 +3,7 @@
 
     <groupId>com.qahit</groupId>
     <artifactId>praxislaf</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2</version>
     <packaging>jar</packaging>
 
     <name>praxislaf</name>
